@@ -5,7 +5,7 @@ const chalk = require('chalk');
 
 const { token } = require('../config.json'); //get the token in .env
 const guild = '947221749865537536';
-const application_id = '989975438887649350'; //get the application ID in .env
+const application_id = '1002625965379305583'; //get the application ID in .env
 
 module.exports = (client) => {
 
@@ -15,7 +15,7 @@ module.exports = (client) => {
         const slashCommandFiles = fs.readdirSync(`./slashCommands/${dir}/`).filter(file => file.endsWith('.js'));
 
         for (const file of slashCommandFiles) {
-            const slashCommand =require(`../slashCommands/${dir}/${file}`);
+            const slashCommand = require(`../slashCommands/${dir}/${file}`);
             slashCommands.push(slashCommand.data.toJSON());
             if(slashCommand.data.name) { //if the slash command file has a name
                 client.slashCommands.set(slashCommand.data.name, slashCommand)
@@ -25,6 +25,8 @@ module.exports = (client) => {
             }
         }
     });
+
+    console.log(chalk.yellow('[SLASHCMDS]') + chalk.green(`Załadowano ${client.slashCommands.size} komend ukośnikowych`))
     
     const rest = new REST({ version: '9' }).setToken(token);
 

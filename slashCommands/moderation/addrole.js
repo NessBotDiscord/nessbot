@@ -10,6 +10,7 @@ module.exports = {
         .addUserOption(option => option.setName('użytkownik').setDescription('Wybierz użytkownika któremu chcesz nadać rolę').setRequired(true))
         .addRoleOption(option => option.setName('rola').setDescription('Wybierz rolę którą chcesz nadać użytkownikowi').setRequired(true))
         .addStringOption(option => option.setName('powód').setDescription('Podaj powód nadania roli').setRequired(false)),
+        timeout:5000,
     async execute(client, interaction) {
 
         const user = interaction.options.getMember('użytkownik');

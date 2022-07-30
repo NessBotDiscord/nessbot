@@ -8,6 +8,7 @@ module.exports = {
     .setName('clear')
     .setDescription('Wyczyść wiadomości na kanale')
     .addNumberOption(option => option.setName('ilość').setDescription('Ilość wiadomości które mają zostać usunięte').setRequired(true)),
+    timeout:5000,
     async execute(client, interaction) {
 
         const num = interaction.options.getNumber('ilość');

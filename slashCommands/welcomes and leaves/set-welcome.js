@@ -10,6 +10,7 @@ module.exports = {
     .setDescription('Ustawia kanał z powitaniami nowych użytkowników.')
     .addStringOption(option => option.setName('wiadomość').setDescription('Ustaw wiadomość powitalną').setRequired(true))
     .addChannelOption(option => option.setName('kanał').setDescription('Ustaw na jaki kanał mają przychodzić powitania').setRequired(true)),
+    timeout:5000,
     async execute(client, interaction) {
 
         const msg = interaction.options.getString('wiadomość');

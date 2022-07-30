@@ -9,6 +9,7 @@ module.exports = {
     data: new SlashCommandBuilder()
     .setName('globalne-ogloszenie')
     .setDescription('Pokazuje globalne ogłoszenie napisane przez programistów'),
+    timeout:5000,
     async execute(client, interaction) {
 
         const row = new MessageActionRow()

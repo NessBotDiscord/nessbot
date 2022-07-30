@@ -7,6 +7,7 @@ module.exports = {
     data: new SlashCommandBuilder()
     .setName('iledo')
     .setDescription('Sprawdź ile zostało do świąt'),
+    timeout:5000,
     async execute(client, interaction) {
 
         const embed = new MessageEmbed()

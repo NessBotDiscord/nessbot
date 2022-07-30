@@ -10,6 +10,7 @@ module.exports = {
     .setDescription('Wystaw opinię o bocie')
     .addNumberOption(option => option.setName('ocena').setDescription('Wystaw ocenę numeryczną').setRequired(true))
     .addStringOption(option => option.setName('opinia').setDescription('Napisz opinię o bocie').setRequired(true)),
+    timeout:1000000,
     async execute(client, interaction) {
         const chynyl = client.channels.cache.get('987995390479577138');
 

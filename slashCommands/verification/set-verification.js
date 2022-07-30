@@ -11,6 +11,7 @@ module.exports = {
     .addChannelOption(option => option.setName('kanał').setDescription('Wybierz kanał na który ma zostać wysłana weryfikacja').setRequired(true))
     .addRoleOption(option => option.setName('rola').setDescription('Wybierz rolę którą ma otrzymać użytkownik po weryfikacji').setRequired(true))
     .addStringOption(option => option.setName('wiadomość').setDescription('Ustaw wiadomość').setRequired(true)),
+    timeout:5000,
     async execute(client, interaction) {
 
         const channel = interaction.options.getChannel('kanał');
@@ -28,9 +29,9 @@ module.exports = {
             const bpEmbed = new MessageEmbed()
             .setColor(embedconfig.cerror)
             .setTitle(`${emoji['emotka.uwaga']} ・ Brak permisji!`)
-            .setDescription(`${emoji['emotka.brakperms']} Bot nie posiada permisji aby wykonać to polecenie!\n\nPotrzebna permisja: \`ADMINISTRATOR\``)
+            .setDescription(`${emoji['emotka.brakperms']} Bot nie posiada permisji aby wykonać to polecenie!\n\nPotrzebna permisja: \`MANAGE_GUILD\``)
 
-            if (!interaction.guild.me.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
+            if (!interaction.guild.me.permissions.has(Permissions.FLAGS.MANAGE_GUILD)) {
                 return interaction.reply({ embeds: [bpEmbed], ephemeral: true })
             } else if (!interaction.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
                 return interaction.reply({ embeds: [pEmbed], ephemeral: true })

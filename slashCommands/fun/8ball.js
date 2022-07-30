@@ -8,6 +8,7 @@ module.exports = {
     .setName('8ball')
     .setDescription('Zadaj pytanie i otrzymaj odpowiedź')
     .addStringOption(option => option.setName('pytanie').setDescription('Zadaj pytanie.').setRequired(true)),
+    timeout:5000,
     async execute(client, interaction) {
 
         const question = interaction.options.getString('pytanie');

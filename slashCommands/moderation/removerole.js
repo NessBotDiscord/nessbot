@@ -10,6 +10,7 @@ module.exports = {
         .addUserOption(option => option.setName('użytkownik').setDescription('Wybierz użytkownika któremu chcesz odebrać rolę').setRequired(true))
         .addRoleOption(option => option.setName('rola').setDescription('Wybierz rolę którą chcesz odebrać użytkownikowi').setRequired(true))
         .addStringOption(option => option.setName('powód').setDescription('Podaj powód odebrania roli').setRequired(false)),
+        timeout:5000,
     async execute(client, interaction) {
 
         const member = interaction.options.getMember('użytkownik');

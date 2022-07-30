@@ -8,6 +8,7 @@ module.exports = {
     data: new SlashCommandBuilder()
     .setName('delete-leave')
     .setDescription('usuwa kanał z pożegnaniami nowych użytkowników.'),
+    timeout:5000,
     async execute(client, interaction) {
 
         const pEmbed = new MessageEmbed()

@@ -9,6 +9,7 @@ module.exports = {
     .setDescription('Tworzy ankietę')
     .addChannelOption(option => option.setName('kanał').setDescription('Kanał na który ma zostać wysłana ankieta').setRequired(true))
     .addStringOption(option => option.setName('tekst').setDescription('Tekst który widnieje na ankiecie').setRequired(true)),
+    timeout:5000,
     async execute(client, interaction) {
 
         const channel = interaction.options.getChannel('kanał');

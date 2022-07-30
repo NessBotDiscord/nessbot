@@ -11,6 +11,7 @@ module.exports = {
     .addStringOption(option => option.setName('tytuł').setDescription('Podaj tytuł wiadomości').setRequired(true))
     .addStringOption(option => option.setName('opis').setDescription('Podaj opis wiadomości').setRequired(true))
     .addStringOption(option => option.setName('footer').setDescription('Podaj footer wiadomości').setRequired(true)),
+    timeout:5000,
     async execute(client, interaction) {
 
         const channel = interaction.options.getChannel('kanał');

@@ -9,6 +9,7 @@ module.exports = {
     .setDescription('Zbanuj użytkownika')
     .addUserOption(option => option.setName('użytkownik').setDescription('Wybierz użytkownika którego chcesz zbanować').setRequired(true))
     .addStringOption(option => option.setName('powód').setDescription('Podaj powód bana')),
+    timeout:5000,
     async execute(client, interaction) {
 
         const user = interaction.options.getMember('użytkownik');

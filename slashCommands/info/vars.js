@@ -7,6 +7,7 @@ module.exports = {
     data: new SlashCommandBuilder()
     .setName('zmienne')
     .setDescription('Wyświetla zmienne np do powitań'),
+    timeout:5000,
     async execute(client, interaction) {
         const embed = new MessageEmbed()
         .setColor(embedconfig.cdefault)

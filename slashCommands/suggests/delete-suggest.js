@@ -8,6 +8,7 @@ module.exports = {
     data: new SlashCommandBuilder()
     .setName('delete-suggest')
     .setDescription('usuwa kanał z propozycjami.'),
+    timeout:5000,
     async execute(client, interaction) {
 
         const pEmbed = new MessageEmbed()

@@ -10,6 +10,7 @@ module.exports = {
     .setDescription('Ustawia kanał z pożegnaniami')
     .addStringOption(option => option.setName('wiadomość').setDescription('Ustaw wiadomość pożegnalną').setRequired(true))
     .addChannelOption(option => option.setName('kanał').setDescription('Ustaw kanał na jaki mają przychodzić pożegnania').setRequired(true)),
+    timeout:5000,
     async execute(client, interaction) {
 
         const msg = interaction.options.getString('wiadomość');

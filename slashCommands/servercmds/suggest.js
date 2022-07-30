@@ -9,6 +9,7 @@ module.exports = {
     .setName('propozycja')
     .setDescription('Wyślij swoją propozycję!')
     .addStringOption(option => option.setName('tekst').setDescription('Napisz propozycję').setRequired(true)),
+    timeout:5000,
     async execute(client, interaction) {
 
         const msg = interaction.options.getString('tekst');

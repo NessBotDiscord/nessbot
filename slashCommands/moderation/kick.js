@@ -9,6 +9,7 @@ module.exports = {
     .setDescription('Wyrzuć użytkownika')
     .addUserOption(option => option.setName('użytkownik').setDescription('Wybierz użytkownika którego chcesz wyrzucić').setRequired(true))
     .addStringOption(option => option.setName('powód').setDescription('Podaj powód kicka')),
+    timeout:5000,
     async execute(client, interaction) {
 
         const user = interaction.options.getMember('użytkownik');

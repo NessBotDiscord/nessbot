@@ -8,6 +8,7 @@ module.exports = {
     .setName('avatar')
     .setDescription('Zobacz avatar użytkownika')
     .addUserOption(option => option.setName('użytkownik').setDescription('Wybierz którego użytkownika chcesz zobaczyć avatar')),
+    timeout:5000,
     async execute(client, interaction) {
 
         const user = interaction.options.getUser('użytkownik') || interaction.user;

@@ -5,37 +5,39 @@ const botconfig = require('../../config/bot.json');
 const emoji = require('../../config/emojis.json');
 
 module.exports = {
-    data: new SlashCommandBuilder()
-    .setName('bot')
-    .setDescription('Wyświetla statystyki bota'),
-    async execute(client, interaction) {
+   data: new SlashCommandBuilder()
+      .setName('bot')
+      .setDescription('Wyświetla statystyki bota'),
+      timeout:5000,
+   async execute(client, interaction) {
 
-        const uptime = process.uptime();
-        const days = Math.floor((uptime % 31536000) / 86400);
-        const hours = Math.floor((uptime % 86400) / 3600);
-        const minutes = Math.floor((uptime % 3600) / 60);
-        const seconds = Math.round(uptime % 60);
-        const botuptime = (days > 0 ? days + 'd : ' : '') + (hours > 0 ? hours + 'g : ' : '') + (minutes > 0 ? minutes + 'm : ' : '') + (seconds > 0 ? seconds + 's' : '');
-        
+      const uptime = process.uptime();
+      const days = Math.floor((uptime % 31536000) / 86400);
+      const hours = Math.floor((uptime % 86400) / 3600);
+      const minutes = Math.floor((uptime % 3600) / 60);
+      const seconds = Math.round(uptime % 60);
+      const botuptime = (days > 0 ? days + 'd : ' : '') + (hours > 0 ? hours + 'g : ' : '') + (minutes > 0 ? minutes + 'm : ' : '') + (seconds > 0 ? seconds + 's' : '');
 
-        const embed = new MessageEmbed()
-        .setColor(embedconfig.cdefault)
-        .setTitle('Informacje o bocie')
-        .setDescription(`
+
+      const embed = new MessageEmbed()
+         .setColor(embedconfig.cdefault)
+         .setTitle('Informacje o bocie')
+         .setDescription(`
             ${emoji['emotka.rakieta']} **STATYSTYKI**
             ・ ${emoji['emotka.serwer']} Serwery:
                ${emoji['emotka.reply']} \`${client.guilds.cache.size}\`
             ・ ${emoji['emotka.person']} Użytkownicy:
                ${emoji['emotka.reply']} \`${client.users.cache.size}\`
             ・ ${emoji['emotka.hasztag']} Kanały:
-               ${emoji['emotka.reply']}
+               ${emoji['emotka.reply']} \`${client.channels.cache.size}\`
             ・ ${emoji['emotka.emotka']} Emotki:
                ${emoji['emotka.reply']} \`${client.emojis.cache.size}\`
             ・ ${emoji['emotka.ping']} Ping:
                ${emoji['emotka.reply']} \`${client.ws.ping} ms\`
             ・ ${emoji['emotka.zegar']} Czas działania:
                ${emoji['emotka.reply']} \`${botuptime}\`
-            ・ ${emoji['emotka.ustawienia']} ・ Baza danych: 🟢
+            ・ ${emoji['emotka.ustawienia']}
+               ${emoji['emotka.reply']} Baza danych: 🟢
             
             ${emoji['emotka.system']} **WERSJE**
             ・ ${emoji['emotka.discordlogo']} Discord.js:
@@ -51,6 +53,6 @@ module.exports = {
             \`${botconfig.manager}\` ${emoji['emotka.manager']}
         `)
 
-        interaction.reply({ embeds: [embed] })
-    }
+      interaction.reply({ embeds: [embed] })
+   }
 }

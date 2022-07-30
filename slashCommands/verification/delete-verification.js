@@ -8,6 +8,7 @@ module.exports = {
     data: new SlashCommandBuilder()
     .setName('delete-verification')
     .setDescription('Wyłącza weryfikację'),
+    timeout:5000,
     async execute(client, interaction) {
 
         const pEmbed = new MessageEmbed()
@@ -19,7 +20,7 @@ module.exports = {
             return interaction.reply({ embeds: [pEmbed], ephemeral: true })
         }
 
-        Schema.findOne({ lguildId: interaction.guild.id }, async (err, data) => {
+        Schema.findOne({ guildId: interaction.guild.id }, async (err, data) => {
             if(!data) return interaction.reply({ content: 'Weryfikacja nie była włączona na tym serwerz!', ephemeral: true })
 
             if(data) {

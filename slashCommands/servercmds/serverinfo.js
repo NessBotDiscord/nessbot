@@ -7,6 +7,7 @@ module.exports = {
     data: new SlashCommandBuilder()
     .setName('serverinfo')
     .setDescription('Pokazuje informacje o serwerze.'),
+    timeout:5000,
     async execute(client, interaction) {
 
         const { guild } = interaction;

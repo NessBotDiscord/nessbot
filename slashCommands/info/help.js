@@ -9,6 +9,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('help')
         .setDescription('Pokazuje komendy z danej kategorii'),
+        timeout:5000,
     async execute(client, interaction) {
 
         const embed = new MessageEmbed()

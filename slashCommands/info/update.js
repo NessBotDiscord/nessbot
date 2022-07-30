@@ -7,6 +7,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('aktualizacje')
         .setDescription('Informacje o aktualizacjach'),
+        timeout:5000,
     async execute(client, interaction) {
         const row = new MessageActionRow()
             .addComponents(
@@ -36,25 +37,25 @@ module.exports = {
             .setColor(embedconfig.cdefault)
             .setTitle('Poprzednia aktualizacja')
             .setDescription(`
-                \`\`\`[+] /userinfo\n[+] /avatar\n[/] /help\n[/] /aktualizacje\`\`\`
+            \`\`\`USER:\n[+] /8ball\n[+] /clear\n[+] /iledo\n[-] /adminpanel\n[/] Naprawiono błędy ze sprawdzeniem wysokości roli użytkownika\n\nDEV:\n[+] /gban\n[+] /shutdown\`\`\`
             `)
-            .setFooter({ text: '2.0.5' })
+            .setFooter({ text: '2.0.6' })
 
         const embed2 = new MessageEmbed()
             .setColor(embedconfig.cdefault)
             .setTitle('Teraźniejsza aktualizacja')
             .setDescription(`
-            \`\`\`USER:\n[+] /8ball\n[+] /clear\n[+] /iledo\n[-] /adminpanel\n[/] Naprawiono błędy ze sprawdzeniem wysokości roli użytkownika\n\nDEV:\n[+] /gban\n[+] /shutdown\`\`\`
+            \`\`\`[+] /ankieta\n[+] /eastereggs-on\n[+] /eastereggs-off\n[/] naprawiono sporo błędów\n[-] /shardinfo\n[/] /userinfo\`\`\`
         `)
-            .setFooter({ text: '2.0.6' })
+            .setFooter({ text: '2.0.7' })
 
         const embed3 = new MessageEmbed()
             .setColor(embedconfig.cdefault)
             .setTitle('Plany na następną aktualizację')
             .setDescription(`
-                \`\`\`[+] /set-verification\n[+] /delete-verification\n[+] /ankieta\`\`\`
+                \`\`\`[+] /set-report\n[+] /delete-report\n[+] /report\`\`\`
             `)
-            .setFooter({ text: '2.0.7' })
+            .setFooter({ text: '2.0.8' })
 
         interaction.reply({ embeds: [embed], components: [row] });
 

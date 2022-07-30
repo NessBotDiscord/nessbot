@@ -31,7 +31,7 @@ client.on("ready", () => {
     
     const actvs = [
         `@NessBot`,
-        `NessBot 2.0.6`,
+        `NessBot 2.0.7`,
         `Jestem w Stegnie na plaży`,
         `Czadowo!`,
         `To hagi łagi jest to on!`
@@ -49,6 +49,7 @@ client.on("ready", () => {
 
 // Kolekcje
 
+client.timeouts = new Collection();
 client.commands = new Collection();
 client.aliases = new Collection();
 client.events = new Collection();
@@ -100,7 +101,7 @@ client.on('guildMemberRemove', async (lmember, lguild) => {
 
         const luser = lmember.user;
         const lvschannel = lmember.guild.channels.cache.get(ldata.lchannelId);
-        const leavemsg = ldata.leaveMsg.replace(`{user.name}`, luser.username).replace(`{user.id}`, luser.id).replace(`{user.tag}`, lsuser.tag);
+        const leavemsg = ldata.leaveMsg.replace(`{user.name}`, luser.username).replace(`{user.id}`, luser.id).replace(`{user.tag}`, luser.tag);
 
         const leaveEmbed = new MessageEmbed()
         .setColor(embedconfig.cdefault)
@@ -110,6 +111,27 @@ client.on('guildMemberRemove', async (lmember, lguild) => {
         `)
 
         lvschannel.send({ embeds: [leaveEmbed] })
+    })
+})
+
+// Easter Eggi --------------------------------------------------------------------------------------------------
+const egSchema = require('./Schema/eastereggs-schema');
+
+client.on('messageCreate', async (message) => {
+    egSchema.findOne({ eguildId: message.guild.id }, async (err, egdata) => {
+        if(!egdata) return;
+        
+        if(message.content === 'kto pytał?') {
+            message.reply({ content: '"kto pytał" było modne rok temu' })
+        }
+
+        if(message.content === 'w stegnie na plaży') {
+            message.reply({ content: 'Witam was jestem w Stegnie na plaży.\nDrugi dzień w Stegnie na plaży!\nSerdecznie was pozdrawiam ze Stegny z morza Bałtyckiego.' })
+        }
+
+        if(message.content === 'ta?') {
+            message.reply({ content: 'ta.' })
+        }
     })
 })
 
