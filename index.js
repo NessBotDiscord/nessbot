@@ -11,7 +11,7 @@ const emoji = require('./config/emojis.json');
 const mongoose = require('mongoose');
 
 
-mongoose.connect('mongodb+srv://vsbotadmin:2KKKsTN1514Lf3O7@cluster0.jgjrf9h.mongodb.net/Data', {
+mongoose.connect('link', {
     useUnifiedTopology: true,
     useNewUrlParser: true,
 }).then(console.log(chalk.yellow('[BAZA DANYCH] ') + chalk.green('Połączono z bazą danych')))
@@ -114,25 +114,6 @@ client.on('guildMemberRemove', async (lmember, lguild) => {
     })
 })
 
-// Easter Eggi --------------------------------------------------------------------------------------------------
-const egSchema = require('./Schema/eastereggs-schema');
 
-client.on('messageCreate', async (message) => {
-    egSchema.findOne({ eguildId: message.guild.id }, async (err, egdata) => {
-        if(!egdata) return;
-        
-        if(message.content === 'kto pytał?') {
-            message.reply({ content: '"kto pytał" było modne rok temu' })
-        }
-
-        if(message.content === 'w stegnie na plaży') {
-            message.reply({ content: 'Witam was jestem w Stegnie na plaży.\nDrugi dzień w Stegnie na plaży!\nSerdecznie was pozdrawiam ze Stegny z morza Bałtyckiego.' })
-        }
-
-        if(message.content === 'ta?') {
-            message.reply({ content: 'ta.' })
-        }
-    })
-})
 
 client.login(token)
